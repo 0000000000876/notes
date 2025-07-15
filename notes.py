@@ -82,6 +82,17 @@ def main():
                         print("Fertig gespeichert!")
             else:
                 print("OK. Prozess abgebrochen")
+        if op == "drop":
+            print("Bist du sicher das du die aktuelle Datenbank schließen willst?")
+            print(" JA -> Fortsetzen \n Irgendwas anderes -> Abbrechen")
+            print(c.Fore.YELLOW)
+            choice = input(">> ")
+            print(c.Fore.CYAN)
+            if choice.upper() == "JA":
+                print("Datenbank gelöscht")
+                load = ""
+            else:
+                print("OK. Prozess abgebrochen")
         #i will test this app now
     input("Drücke enter um das programm zu Schließen...")
 if __name__ == "__main__":
@@ -91,6 +102,6 @@ if __name__ == "__main__":
         print(c.Style.RESET_ALL)
         print(c.Fore.LIGHTRED_EX)
         print("Fataler Fehler: Sie haben das programm durch Strg+C in den erzwungenen Auschaltezustand gebracht")
-        try: input("Drücke enter um das Programm zu schließen")
+        try: input("Drücke enter um das Programm zu schließen...")
         except: pass
         exit()
