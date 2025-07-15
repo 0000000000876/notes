@@ -1,0 +1,31 @@
+Programm Start...
+Dieses Programm ist Konsolen basiert und benutzt eine prompt um deine entscheidungen auszuführen.
+Benutze den Befehl 'help' um Hilfe zu erhalten
+Benutzer?   Felix Reiter                                                    #dev
+~[Felix Reiter]$ help
+
+Liste der Befehle:
+-- new NAME
+-- load MASTERNAME
+-- add FILENAME
+-- addraw TEXT
+-- enc PASSWORD
+-- save
+-- drop
+-- exit
+~[Felix Reiter]$ load DATABASE,tgb
+
+Fehler: Datei 'DATABASE,tgb' existiert nicht
+~[Felix Reiter]$ load DATABASE.tgb
+
+[]                                                                              # i debug printed "load.readlines() here"
+Traceback (most recent call last):                                              #crash happend here
+  File "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\[~] notes\notes.py", line 77, in <module>
+    main()
+    ~~~~^^
+  File "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\[~] notes\notes.py", line 53, in main
+    if load.readlines()[0] == "0":
+       ~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range                                              #the programm automaticly deletes the contents of files when you load them in 
+#issue is fixed
+#at fault was loading the file in w+ mode or smth else idk

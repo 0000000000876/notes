@@ -1,0 +1,45 @@
+Programm Start...
+Dieses Programm ist Konsolen basiert und benutzt eine prompt um deine entscheidungen auszuführen.
+Benutze den Befehl 'help' um Hilfe zu erhalten
+Benutzer?   Felix Reiter                                               
+~[Felix Reiter]$ help                                                    # dev
+
+Liste der Befehle:
+-- new NAME
+-- link MASTERNAME                                                      #here should be 'load'
+-- add FILENAME
+-- addraw TEXT
+-- enc PASSWORD
+-- save
+-- drop
+-- exit
+~[Felix Reiter]$ new DATABASE
+
+~[Felix Reiter]$ link
+
+~[Felix Reiter]$ link DATABASE
+
+~[Felix Reiter]$ load DATAbaSE
+
+Fehler: Datei 'DATAbaSE' existiert nicht                               #claritty bug
+~[Felix Reiter]$ load DATABASE
+
+Fehler: Datei 'DATABASE' existiert nicht
+~[Felix Reiter]$ load DATABASE
+
+Fehler: Datei 'DATABASE' existiert nicht
+~[Felix Reiter]$ new ta
+
+~[Felix Reiter]$ load ta
+
+Fehler: Datei 'ta' existiert nicht
+~[Felix Reiter]$ load DATABASE.tgb                                      #crash accures here
+
+Traceback (most recent call last):
+  File "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\[~] notes\notes.py", line 74, in <module> #censored
+    main()
+    ~~~~^^
+  File "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\[~] notes\notes.py", line 50, in main     #censored
+    if load.readlines[0] == "0":
+       ~~~~~~~~~~~~~~^^^
+TypeError: 'builtin_function_or_method' object is not subscriptable #fixed the error
