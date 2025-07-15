@@ -6,8 +6,10 @@ def main():
     c.init()
     global load
     global text
+    global t_enc
     load = 0
     text = ""
+    t_enc = 0
     print("Dieses Programm ist Konsolen basiert und benutzt eine prompt um deine entscheidungen auszuführen.")
     print("Benutze den Befehl 'help' um Hilfe zu erhalten")
     user = input("Benutzer?   ")
@@ -44,15 +46,29 @@ def main():
                 if not os.path.exists(fname):
                     print(f"Fehler: Datei '{fname}' existiert nicht")
                 else:
-                    load = open(fname,'a+')
+                    load = open(fname,'w+')
                     if load.readlines[0] == "0":
                         print("Datei erfolgreich geladen!")
                     else:
                         print("Passwort Notwendig!")
                         print(c.Fore.YELLOW)
-                        pw = input()
+                        pw = input(">> ")
+                        print(c.Fore.CYAN )
                         etext = "\n".join(load.readlines[1:])
                         text = enc.dec(etext,pw)
+        if op == "save":
+            print("Bist du dir sicher du willst Speichern?")
+            print(" JA -> Fortsetzen \n Irgendwas anderes -> Abbrechen")
+            print(c.Fore.YELLOW)
+            choice = input(">> ")
+            print(c.Fore.CYAN)
+            if choice.upper() == "JA":
+                print("Wird geschpeichert...")
+                load.write(str(t_enc) + "\n" + text)
+                print("Fertig gespeichert!")
+            else:
+                print("OK. Prozess abgebrochen")
+        #i will test this app now
     input("Drücke enter um das programm zu Schließen...")
 if __name__ == "__main__":
     main()
