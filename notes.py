@@ -41,8 +41,14 @@ def main():
                 if not os.path.exists(fname):
                     print(f"Fehler: Datei '{fname}' existiert nicht")
                 else:
-                    load = open(fname,'wr')
-                    print("Datei erfolgreich geladen!")
+                    load = open(fname,'a+')
+                    if load.readlines[0] == "0":
+                        print("Datei erfolgreich geladen!")
+                    else:
+                        print("Passwort Notwendig!")
+                        print(c.Fore.YELLOW)
+                        pw = input()
+                        #decrypt here ig
     input("Drücke enter um das programm zu Schließen...")
 if __name__ == "__main__":
     main()
