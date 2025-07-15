@@ -1,8 +1,10 @@
 import colorama as c
 import os
 def main():
-    print("Programm Start...")
+    print("Programm Start...") #start
     c.init()
+    global load
+    load = 0
     print("Dieses Programm ist Konsolen basiert und benutzt eine prompt um deine entscheidungen auszuführen.")
     print("Benutze den Befehl 'help' um Hilfe zu erhalten")
     user = input("Benutzer?   ")
@@ -21,6 +23,7 @@ def main():
             print("-- add FILENAME")
             print("-- addraw TEXT")
             print("-- enc PASSWORD")  #TODO: Maybe change the password system so it is censored while the user is typing(like just enc and then later then password using idk password.input or smth
+            print("-- save")
             print("-- drop")
             print("-- exit")
         if op == "exit":
@@ -28,8 +31,18 @@ def main():
             break
         if op == "new":
             name = cmd[1]
-            with open(f'{name}.dbk','w') as new:  #maybe we will be changing extension idk
+            with open(f'{name}.tgb','w') as new:  #i did
                 new.write('0')
+        if op == "load":
+            fname = cmd[1]
+            if load != 0:
+                print("Fehler: Es ist bereits ein Tagebuch geladen, benutzen sie 'drop' um es zu entladen")
+            else:
+                if not os.path.exists(fname):
+                    print(f"Fehler: Datei '{fname}' existiert nicht")
+                else:
+                    load = open(fname,'wr')
+                    print("Datei erfolgreich geladen!")
     input("Drücke enter um das programm zu Schließen...")
 if __name__ == "__main__":
     main()
