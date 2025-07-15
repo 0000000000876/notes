@@ -15,7 +15,7 @@ def main():
     user = input("Benutzer?   ")
     while True:
         print(c.Fore.LIGHTRED_EX,end='')
-        print("~[" + c.Fore.GREEN + user + c.Fore.LIGHTMAGENTA_EX + "]$ " + c.Fore.YELLOW,end='')
+        print("~[" + c.Fore.GREEN + user + c.Fore.LIGHTRED_EX + "]$ " + c.Fore.YELLOW,end='')
         command = input()
         cmd = command.split(' ')
         op = cmd[0].lower()
