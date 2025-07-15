@@ -1,10 +1,13 @@
 import colorama as c
 import os
+import enc
 def main():
     print("Programm Start...") #start
     c.init()
     global load
+    global text
     load = 0
+    text = ""
     print("Dieses Programm ist Konsolen basiert und benutzt eine prompt um deine entscheidungen auszuführen.")
     print("Benutze den Befehl 'help' um Hilfe zu erhalten")
     user = input("Benutzer?   ")
@@ -48,7 +51,8 @@ def main():
                         print("Passwort Notwendig!")
                         print(c.Fore.YELLOW)
                         pw = input()
-                        #decrypt here ig
+                        etext = "\n".join(load.readlines[1:])
+                        text = enc.dec(etext,pw)
     input("Drücke enter um das programm zu Schließen...")
 if __name__ == "__main__":
     main()
