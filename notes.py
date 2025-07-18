@@ -31,16 +31,17 @@ def main():
             print("-- save")
             print("-- drop")
             print("-- exit")
-        if op == "exit":
+            print("-- clear")
+        elif op == "exit":
             print("Auf wiedersehen!")
             break
-        if op == "new":
+        elif op == "new":
             if len(cmd) < 1:print("Fehler: Kein NAME gegeben")
             else:
                 name = cmd[1]
                 with open(f'{name}.tgb','w') as new:  #i did
                     new.write('0')
-        if op == "load":
+        elif op == "load":
             if len(cmd) < 1:print("Fehler: Kein DATEINAME gegeben")
             else:
                 fname = cmd[1]
@@ -65,7 +66,7 @@ def main():
                             etext = "\n".join(lines[1:])
                             text = enc.dec(etext,pw)
                         print("Datei erfolgreich geladen!")
-        if op == "save":
+        elif op == "save":
             print("Bist du dir sicher du willst Speichern?")
             print(" JA -> Fortsetzen \n Irgendwas anderes -> Abbrechen")
             print(c.Fore.YELLOW)
@@ -82,7 +83,7 @@ def main():
                         print("Fertig gespeichert!")
             else:
                 print("OK. Prozess abgebrochen")
-        if op == "drop":
+        elif op == "drop":
             print("Bist du sicher das du die aktuelle Datenbank schließen willst?")
             print(" JA -> Fortsetzen \n Irgendwas anderes -> Abbrechen")
             print(c.Fore.YELLOW)
@@ -93,7 +94,11 @@ def main():
                 load = ""
             else:
                 print("OK. Prozess abgebrochen")
-        #i will test this app now
+        elif op == "clear":
+            os.system('cls')
+        else:
+            print("Befehl invalide")
+        #goodbye
     input("Drücke enter um das programm zu Schließen...")
 if __name__ == "__main__":
     try:
